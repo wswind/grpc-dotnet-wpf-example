@@ -25,7 +25,6 @@ namespace WpfClient.ViewModels
 
         public void ClickButton1()
         {
-            //Text1 = "changed";
             using var channel = GrpcChannel.ForAddress("https://localhost:5001");
             var client = new Greeter.GreeterClient(channel);
 
