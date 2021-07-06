@@ -1,0 +1,22 @@
+﻿<Window x:Class="WpfClient.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        Title="{Binding Title}" Height="350" Width="525" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+      
+        <TextBox x:Name="textBox"  HorizontalAlignment="Center" Text="{Binding Text1, FallbackValue='no binding'}" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+        <Button x:Name="button1" Command="{Binding OnClickButton1}" Content="Button" HorizontalAlignment="Left" Margin="88,84,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <!--<ContentControl prism:RegionManager.RegionName="ContentRegion" >
+        </ContentControl>-->
+    </Grid>
+</Window>
