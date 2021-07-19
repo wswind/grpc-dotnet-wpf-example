@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Server", "Server\Server.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client", "Client\Client.csproj", "{48A1D3BC-A14B-436A-8822-6DE2BEF8B747}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfClient", "WpfClient\WpfClient.csproj", "{09154559-DD94-44D2-B543-8E2C0BFD60C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfClient", "WpfClient\WpfClient.csproj", "{09154559-DD94-44D2-B543-8E2C0BFD60C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp.Grpc", "WpfApp.Grpc\WpfApp.Grpc.csproj", "{B787299E-EF61-4EC4-85AD-093AB8F23668}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfApp.Grpc", "WpfApp.Grpc\WpfApp.Grpc.csproj", "{B787299E-EF61-4EC4-85AD-093AB8F23668}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfClientNetFramework", "WpfClientNetFramework\WpfClientNetFramework.csproj", "{09D4CF50-5B79-43EB-8D20-812F6F8F6F77}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{B787299E-EF61-4EC4-85AD-093AB8F23668}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B787299E-EF61-4EC4-85AD-093AB8F23668}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B787299E-EF61-4EC4-85AD-093AB8F23668}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09D4CF50-5B79-43EB-8D20-812F6F8F6F77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09D4CF50-5B79-43EB-8D20-812F6F8F6F77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09D4CF50-5B79-43EB-8D20-812F6F8F6F77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09D4CF50-5B79-43EB-8D20-812F6F8F6F77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

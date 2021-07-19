@@ -3,7 +3,7 @@ using Grpc.Net.Client;
 using Prism.Commands;
 using Prism.Mvvm;
 
-namespace WpfClient.ViewModels
+namespace WpfClientNetFramework.ViewModels
 {
     public class MainWindowViewModel : BindableBase
     {
@@ -32,11 +32,14 @@ namespace WpfClient.ViewModels
 
         public void ClickButton1()
         {
-            using var channel = GrpcChannel.ForAddress("https://localhost:5001");
-            var client = new Greeter.GreeterClient(channel);
+            using (var channel = GrpcChannel.ForAddress("https://localhost:5001"))
+            {
+                var client = new Greeter.GreeterClient(channel);
 
-            var reply = client.SayHelloAsync(new HelloRequest { Name = Text1 }).GetAwaiter().GetResult();
-            Text2 = reply.Message;
+                var reply = client.SayHelloAsync(new HelloRequest { Name = Text1 }).GetAwaiter().GetResult();
+                Text2 = reply.Message;
+
+            }
         }
 
         public DelegateCommand OnClickButton1 { get; private set; }
