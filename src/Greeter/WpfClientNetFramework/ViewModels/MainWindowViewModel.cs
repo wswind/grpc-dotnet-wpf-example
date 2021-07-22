@@ -2,6 +2,7 @@
 using Grpc.Net.Client;
 using Prism.Commands;
 using Prism.Mvvm;
+using System.Net.Http;
 
 namespace WpfClientNetFramework.ViewModels
 {
@@ -32,7 +33,10 @@ namespace WpfClientNetFramework.ViewModels
 
         public void ClickButton1()
         {
-            using (var channel = GrpcChannel.ForAddress("https://localhost:5001"))
+            using (var channel = GrpcChannel.ForAddress("https://localhost:5001",new GrpcChannelOptions
+            {
+                HttpHandler = new WinHttpHandler()
+            }))
             {
                 var client = new Greeter.GreeterClient(channel);
 
