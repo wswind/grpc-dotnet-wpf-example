@@ -1,5 +1,6 @@
 ﻿using Greet;
 using Grpc.Net.Client;
+using Grpc.Net.Client.Web;
 using Prism.Commands;
 using Prism.Mvvm;
 using System.Net.Http;
@@ -33,17 +34,26 @@ namespace WpfClientNetFramework.ViewModels
 
         public void ClickButton1()
         {
-            using (var channel = GrpcChannel.ForAddress("https://localhost:5001",new GrpcChannelOptions
-            {
-                HttpHandler = new WinHttpHandler()
-            }))
-            {
-                var client = new Greeter.GreeterClient(channel);
+            //using (var channel = GrpcChannel.ForAddress("https://localhost:5001",new GrpcChannelOptions
+            //{
+            //    HttpHandler = new WinHttpHandler()
+            //}))
+            //{
+            //    var client = new Greeter.GreeterClient(channel);
 
-                var reply = client.SayHelloAsync(new HelloRequest { Name = Text1 }).GetAwaiter().GetResult();
-                Text2 = reply.Message;
+            //    var reply = client.SayHelloAsync(new HelloRequest { Name = Text1 }).GetAwaiter().GetResult();
+            //    Text2 = reply.Message;
 
-            }
+            //}
+
+            var channel = GrpcChannel.ForAddress("https://localhost:5001", new GrpcChannelOptions
+            {
+                HttpHandler = new GrpcWebHandler(new HttpClientHandler())
+            });
+
+            var client = new Greeter.GreeterClient(channel);
+            var reply = client.SayHelloAsync(new HelloRequest { Name = Text1 }).GetAwaiter().GetResult();
+            Text2 = reply.Message;
         }
 
         public DelegateCommand OnClickButton1 { get; private set; }
