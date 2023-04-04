@@ -47,13 +47,12 @@ namespace Server
 
             app.UseRouting();
 
-            app.UseGrpcWeb(); // Must be added between UseRouting and UseEndpoints
+            app.UseGrpcWeb(new GrpcWebOptions { DefaultEnabled = true }); // Must be added between UseRouting and UseEndpoints
             app.UseCors();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGrpcService<GreeterService>().EnableGrpcWeb()
-                                                          .RequireCors("AllowAll");
+                endpoints.MapGrpcService<GreeterService>().RequireCors("AllowAll");
             });
         }
     }
